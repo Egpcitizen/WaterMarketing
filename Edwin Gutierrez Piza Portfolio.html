@@ -103,10 +103,10 @@
           <div class="mt-6 flex flex-wrap gap-3">
             <a href="#case-study" class="px-5 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-600 transition font-semibold ring-focus">See case study</a>
             <a id="emailBtn" href="mailto:Edwin.june99@gmail.com" class="px-5 py-3 rounded-xl glass hover:bg-white/5 transition ring-focus">Email me</a>
-            <button id="linkedinBtn" class="px-5 py-3 rounded-xl glass hover:bg-white/5 transition ring-focus flex items-center gap-2">
+            <a href="https://www.linkedin.com/in/edwin-gutierrez-piza" target="_blank" rel="noopener" id="linkedinBtn" class="px-5 py-3 rounded-xl glass hover:bg-white/5 transition ring-focus flex items-center gap-2">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9h3v9H6zM7.5 6.75A1.75 1.75 0 1 0 7.5 3.25a1.75 1.75 0 0 0 0 3.5ZM14.5 9c-1.4 0-2.5 1.1-2.5 2.5V18h3v-5c0-.55.45-1 1-1s1 .45 1 1v5h3v-6.2A2.8 2.8 0 0 0 17.2 9h-2.7z" fill="white"/></svg>
               LinkedIn
-            </button>
+            </a>
           </div>
 
           <div class="mt-6 grid grid-cols-3 gap-4 text-center">
@@ -127,8 +127,10 @@
 
         <div class="md:col-span-5">
           <div class="glass rounded-2xl p-6 shine">
-            <div class="flex items-center gap-3">
-              <div class="text-4xl emoji">🎯</div>
+            <div class="flex items-center gap-4">
+              <div class="relative h-16 w-16 shrink-0 rounded-xl overflow-hidden ring-2 ring-white/10">
+                <img id="profilePhoto" src="https://media.licdn.com/dms/image/D4D03AQGx/profile-displayphoto-shrink_200_200/0/1234567890?e=2147483647&v=beta&t=placeholder" alt="Edwin Gutierrez Piza" class="h-full w-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+              </div>
               <div>
                 <div class="text-sm text-gray-300">Focus area</div>
                 <div class="font-semibold">Content, Funnels, Automation</div>
@@ -167,15 +169,21 @@
             <div class="text-sm text-gray-300">Contact</div>
             <div class="mt-2 text-lg font-semibold">Edwin Gutierrez Piza</div>
             <div class="mt-1 text-sm text-gray-300">Email: <a class="text-indigo-300 hover:underline" href="mailto:Edwin.june99@gmail.com">Edwin.june99@gmail.com</a></div>
-            <div class="mt-1 text-sm text-gray-300">LinkedIn: <button id="linkedinInlineBtn" class="text-indigo-300 hover:underline">Open</button></div>
+            <div class="mt-1 text-sm text-gray-300">LinkedIn: <a href="https://www.linkedin.com/in/edwin-gutierrez-piza" target="_blank" rel="noopener" class="text-indigo-300 hover:underline">Open</a></div>
             <div class="divider my-5"></div>
             <div class="grid grid-cols-3 gap-3">
               <div class="rounded-xl p-4 tag text-center"><div class="text-xl">📈</div><div class="text-xs text-gray-300 mt-1">Funnels</div></div>
               <div class="rounded-xl p-4 tag text-center"><div class="text-xl">🎥</div><div class="text-xs text-gray-300 mt-1">Video</div></div>
               <div class="rounded-xl p-4 tag text-center"><div class="text-xl">🔍</div><div class="text-xs text-gray-300 mt-1">SEO</div></div>
             </div>
-            <button id="setLinkedIn" class="mt-5 w-full px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition text-sm font-semibold ring-focus">Set/Update LinkedIn URL</button>
-            <p class="mt-2 text-xs text-gray-400">Note: You haven’t shared your LinkedIn link yet. Use the button to add it—saved on your device.</p>
+            <div class="mt-5 flex gap-2">
+              <a href="https://www.linkedin.com/in/edwin-gutierrez-piza" target="_blank" rel="noopener" class="flex-1 inline-flex justify-center items-center gap-2 px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition text-sm font-semibold ring-focus">Open LinkedIn Profile
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="ml-1"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <button id="setPhoto" class="px-4 py-2 rounded-lg glass hover:bg-white/5 transition text-sm ring-focus">Set Profile Photo</button>
+            </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="ml-1"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -376,6 +384,7 @@
       <div class="mt-5 flex flex-wrap gap-2">
         <button id="wlPart1Btn" class="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition text-sm font-semibold ring-focus">Part 1</button>
         <button id="wlPart2Btn" class="px-4 py-2 rounded-lg glass hover:bg-white/5 transition text-sm ring-focus">Part 2</button>
+        <button id="mockLinkTop" class="px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 transition text-sm font-semibold ring-focus">Open mock site</button>
       </div>
 
       <!-- Part 1 -->
@@ -578,6 +587,7 @@
           const p2Btn = document.getElementById('wlPart2Btn');
           const p1 = document.getElementById('wlPart1');
           const p2 = document.getElementById('wlPart2');
+          const mockTop = document.getElementById('mockLinkTop');
           function show(which){
             const isP1 = which === 'p1';
             p1.classList.toggle('hidden', !isP1);
@@ -596,6 +606,14 @@
           }
           p1Btn && p1Btn.addEventListener('click',()=>show('p1'));
           p2Btn && p2Btn.addEventListener('click',()=>show('p2'));
+          mockTop && mockTop.addEventListener('click', () => {
+            const url = localStorage.getItem('waterloss_mock_url') || '';
+            if (url) openExternal(url); else {
+              const val = prompt('Paste your mock site URL (https://...)');
+              if (val && /^https?:\/\//i.test(val)) { localStorage.setItem('waterloss_mock_url', val.trim()); openExternal(val.trim()); }
+              else if (val) alert('Please include http or https at the start.');
+            }
+          });
           show('p1');
         })();
       </script>
@@ -703,7 +721,7 @@
               <div>
                 <h3 class="text-base font-semibold">EDWIN GUTIERREZ PIZA</h3>
                 <p class="text-gray-300">Business Administration</p>
-                <div class="mt-2 text-xs text-gray-400">Querétaro, Qro · 461 114 5929 · Edwin.june99@gmail.com · linkedin.com/in/edwin-gutierrez-piza</div>
+                <div class="mt-2 text-xs text-gray-400">Querétaro, Qro · 461 114 5929 · Edwin.june99@gmail.com · <a href="https://www.linkedin.com/in/edwin-gutierrez-piza" target="_blank" rel="noopener" class="underline">linkedin.com/in/edwin-gutierrez-piza</a></div>
               </div>
               <div>
                 <h4 class="font-semibold">Professional Summary</h4>
@@ -805,7 +823,7 @@
           </div>
           <div class="flex md:justify-end gap-3">
             <a href="mailto:Edwin.june99@gmail.com" class="px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 transition font-semibold ring-focus">Email Edwin</a>
-            <button id="openLinkedIn" class="px-5 py-3 rounded-xl glass hover:bg-white/5 transition font-semibold ring-focus">LinkedIn</button>
+            <a href="https://www.linkedin.com/in/edwin-gutierrez-piza" target="_blank" rel="noopener" id="openLinkedIn" class="px-5 py-3 rounded-xl glass hover:bg-white/5 transition font-semibold ring-focus">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -841,6 +859,7 @@
     const LS_LINKEDIN = 'edwin_linkedin_url';
     const LS_VIRAL = 'edwin_viral_links';
     const LS_CV = 'edwin_cv_url';
+    const LS_PHOTO = 'edwin_profile_photo';
 
     const $ = (sel) => document.querySelector(sel);
     const $$ = (sel) => Array.from(document.querySelectorAll(sel));
@@ -932,10 +951,12 @@ document.addEventListener('click', (e) => {
       if (e.key === 'Escape') closeModal();
     });
 
-    const getLinkedIn = () => localStorage.getItem(LS_LINKEDIN) || '';
-    const setLinkedIn = (url) => localStorage.setItem(LS_LINKEDIN, url);
+    const getLinkedIn = () => 'https://www.linkedin.com/in/edwin-gutierrez-piza';
+    const setLinkedIn = () => {};
     const getCV = () => localStorage.getItem(LS_CV) || '';
     const setCV = (url) => localStorage.setItem(LS_CV, url);
+    const getPhoto = () => localStorage.getItem(LS_PHOTO) || '';
+    const setPhoto = (url) => localStorage.setItem(LS_PHOTO, url);
 
     const openLinkedInSafe = () => {
       const url = getLinkedIn();
@@ -993,11 +1014,32 @@ document.addEventListener('click', (e) => {
       initial: getCV(),
       onSave: (val) => { if (!validUrl(val)) return alert('Please enter a full URL starting with http or https.'); setCV(val.trim()); }
     }));
+
+    // Set LinkedIn photo URL (stored locally)
+    on($('#setPhoto'), 'click', () => {
+      const val = prompt('Paste the direct URL to your profile photo (https://...)');
+      if (val && /^https?:\/\//i.test(val)) {
+        setPhoto(val.trim());
+        const img = document.querySelector('#profilePhoto');
+        if (img) img.src = val.trim();
+      } else if (val) {
+        alert('Please include http or https at the start.');
+      }
+    });
     on($('#toggleCVDetails'), 'click', (e) => {
       const box = $('#cvDetails'); if (!box) return;
       box.classList.toggle('hidden');
       e.currentTarget.textContent = box.classList.contains('hidden') ? 'Show details' : 'Hide details';
     });
+
+    // Load saved profile photo if any
+    (function(){
+      const url = getPhoto();
+      if (url) {
+        const img = document.querySelector('#profilePhoto');
+        if (img) img.src = url;
+      }
+    })();
 
     // Viral posts table
     const viralPosts = [
@@ -1014,16 +1056,16 @@ document.addEventListener('click', (e) => {
     ];
 
     const defaultViralLinks = {
-      "1": "https://x.com/Edwin_G_Piza/status/1879324862340280495",
-"2": "https://x.com/AutismCapital/status/1874922753146728511",
-"3": "https://x.com/Edwin_G_Piza/status/1879268491330814078",
-"4": "https://x.com/Edwin_G_Piza/status/1879579998425927863",
-"5": "https://x.com/Edwin_G_Piza/status/1879593424674017761",
-"6": "https://x.com/Edwin_G_Piza/status/1879240120102158398",
-"7": "https://x.com/Edwin_G_Piza/status/1875613067641548833",
-"8": "https://x.com/Edwin_G_Piza/status/1877801118153015695",
-"9": "https://x.com/Edwin_G_Piza/status/1879572116682772690",
-"10": "https://x.com/Edwin_G_Piza/status/1879248116685422762"
+      "1": "https://x.com/Edwin_G_Piza/status/495",
+      "2": "https://x.com/AutismCapital/status/511",
+      "3": "https://x.com/Edwin_G_Piza/status/078",
+      "4": "https://x.com/Edwin_G_Piza/status/863",
+      "5": "https://x.com/Edwin_G_Piza/status/761",
+      "6": "https://x.com/Edwin_G_Piza/status/398",
+      "7": "https://x.com/Edwin_G_Piza/status/833",
+      "8": "https://x.com/Edwin_G_Piza/status/695",
+      "9": "https://x.com/Edwin_G_Piza/status/690",
+      "10": "https://x.com/Edwin_G_Piza/status/762"
     };
 
     function loadViralLinks() { try { return JSON.parse(localStorage.getItem(LS_VIRAL) || '{}'); } catch { return {}; } }
@@ -1134,6 +1176,5 @@ document.addEventListener('click', (e) => {
 
     renderViralTable();
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e2a71d33c44778',t:'MTc1NzcxNDE2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e2c0d5905a47ab',t:'MTc1NzcxNTIxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
