@@ -1078,60 +1078,58 @@ document.addEventListener('click', (e) => {
     }
 
     function renderViralTable() {
-      const tbody = $('#viralTable'); if (!tbody) return;
-      const saved = ensureDefaultViralLinks();
-
-      viralPosts.forEach(item => {
-        let row = tbody.querySelector(`tr[data-id="${item.id}"]`);
-        const link = saved[item.id] || '';
-        if (!row) {
-          row = document.createElement('tr');
-          row.dataset.id = item.id;
-          row.innerHTML = `
-            <td class="py-3 px-3 text-gray-400">${item.id.padStart(2, '0')}</td>
-            <td class="py-3 px-3" data-cell="summary"></td>
-            <td class="py-3 px-3 text-gray-300" data-cell="views"></td>
-            <td class="py-3 px-3" data-cell="link">
-              <a class="text-indigo-300 hover:underline text-sm ${link ? '' : 'hidden'}" target="_blank" rel="noopener">Open</a>
-              <span class="text-xs px-2 py-1 rounded-full tag text-gray-300 ${link ? 'hidden' : 'inline-block'}">No link set</span>
-            </td>
-            <td class="py-3 px-3">
-              <div class="flex justify-end gap-2">
-                <button class="px-3 py-1.5 rounded-lg glass hover:bg-white/5 transition text-xs" data-action="edit">Add link</button>
-                <button class="px-3 py-1.5 rounded-lg bg-rose-500/80 hover:bg-rose-500 transition text-xs" data-action="clear">Clear</button>
-              </div>
-            </td>
-          `;
-          tbody.appendChild(row);
-
-          row.querySelector('[data-action="edit"]').addEventListener('click', () => {
-            const savedNow = loadViralLinks();
-            openModal({
-              title: `Set link for #${item.id}`,
-              desc: 'Paste the full URL to this post on X (Twitter).',
-              initial: savedNow[item.id] || '',
-              onSave: (val) => {
-                const next = loadViralLinks();
-                if (val && validUrl(val)) next[item.id] = val.trim();
-                else if (val) { alert('Enter a full URL starting with http or https.'); return; }
-                else delete next[item.id];
-                saveViralLinks(next);
-              }
-            });
-          });
-          row.querySelector('[data-action="clear"]').addEventListener('click', () => {
-            const next = loadViralLinks(); delete next[item.id]; saveViralLinks(next); renderViralTable();
-          });
-        }
-        row.querySelector('[data-cell="summary"]').textContent = item.summary;
-        row.querySelector('[data-cell="views"]').textContent = item.views;
-        const linkA = row.querySelector('[data-cell="link"] a');
-        const badge = row.querySelector('[data-cell="link"] span');
-        const editBtn = row.querySelector('[data-action="edit"]');
-        if (link) { linkA.href = link; linkA.classList.remove('hidden'); badge.classList.add('hidden'); editBtn.textContent = 'Edit link'; }
-        else { linkA.removeAttribute('href'); linkA.classList.add('hidden'); badge.classList.remove('hidden'); editBtn.textContent = 'Add link'; }
+  const tbody = $('#viralTable'); if (!tbody) return;
+  const saved = ensureDefaultViralLinks();
+  viralPosts.forEach(item => {
+    let row = tbody.querySelector(`tr[data-id="${item.id}"]`);
+    const link = saved[item.id] || '';
+    if (!row) {
+      row = document.createElement('tr');
+      row.dataset.id = item.id;
+      row.innerHTML = `
+        <td class="py-3 px-3 text-gray-400">${item.id.padStart(2, '0')}</td>
+        <td class="py-3 px-3" data-cell="summary"></td>
+        <td class="py-3 px-3 text-gray-300" data-cell="views"></td>
+        <td class="py-3 px-3" data-cell="link">
+          <a class="text-indigo-300 hover:underline text-sm ${link ? '' : 'hidden'}" target="_blank" rel="noopener">Open</a>
+          <span class="text-xs px-2 py-1 rounded-full tag text-gray-300 ${link ? 'hidden' : 'inline-block'}">No link set</span>
+        </td>
+        <td class="py-3 px-3">
+          <div class="flex justify-end gap-2">
+            <button class="px-3 py-1.5 rounded-lg glass hover:bg-white/5 transition text-xs" data-action="edit">Add link</button>
+            <button class="px-3 py-1.5 rounded-lg bg-rose-500/80 hover:bg-rose-500 transition text-xs" data-action="clear">Clear</button>
+          </div>
+        </td>
+      `;
+      tbody.appendChild(row);
+      row.querySelector('[data-action="edit"]').addEventListener('click', () => {
+        const savedNow = loadViralLinks();
+        openModal({
+          title: `Set link for #${item.id}`,
+          desc: 'Paste the full URL to this post on X (Twitter).',
+          initial: savedNow[item.id] || '',
+          onSave: (val) => {
+            const next = loadViralLinks();
+            if (val && validUrl(val)) next[item.id] = val.trim();
+            else if (val) { alert('Enter a full URL starting with http or https.'); return; }
+            else delete next[item.id];
+            saveViralLinks(next);
+          }
+        });
+      });
+      row.querySelector('[data-action="clear"]').addEventListener('click', () => {
+        const next = loadViralLinks(); delete next[item.id]; saveViralLinks(next); renderViralTable();
       });
     }
+    row.querySelector('[data-cell="summary"]').textContent = item.summary;
+    row.querySelector('[data-cell="views"]').textContent = item.views;
+    const linkA = row.querySelector('[data-cell="link"] a');
+    const badge = row.querySelector('[data-cell="link"] span');
+    const editBtn = row.querySelector('[data-action="edit"]');
+    if (link) { linkA.href = link; linkA.classList.remove('hidden'); badge.classList.add('hidden'); editBtn.textContent = 'Edit link'; }
+    else { linkA.removeAttribute('href'); linkA.classList.add('hidden'); badge.classList.remove('hidden'); editBtn.textContent = 'Add link'; }
+  });
+}
 
     on($('#exportLinks'), 'click', () => {
       const map = loadViralLinks();
