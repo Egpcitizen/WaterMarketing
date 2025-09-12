@@ -1,260 +1,862 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Edwin Gutierrez Piza | Marketing Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Edwin Gutierrez Piza's marketing portfolio, showcasing B2B funnels, content creation, and automation for tech startups.">
-  <meta property="og:title" content="Edwin Gutierrez Piza | Marketing Portfolio">
-  <meta property="og:description" content="Explore my work in B2B marketing funnels, content creation, and automation for tech startups.">
-  <meta property="og:image" content="[your-og-image-url]">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX'); // Replace with your GA4 ID
-  </script>
+  <meta charset="UTF-8" />
+  <title>Edwin Gutierrez Piza · Marketing Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Custom styles */
-    @keyframes fadeInUp { from {opacity:0; transform: translateY(12px)} to {opacity:1; transform:none} }
-    .fade-in { animation: fadeInUp .6s ease both; }
-    .focus-ring:focus { outline: none; box-shadow: 0 0 0 4px rgba(16,185,129,.35); }
-    .glow { box-shadow: 0 10px 30px rgba(16,185,129,.2); }
-    html { scroll-behavior: smooth; }
-    /* Table styling */
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; }
-    th { background: #f8fafc; color: #1e293b; }
-    /* Gallery images */
-    .gallery img { object-fit: cover; width: 100%; height: 200px; border-radius: 8px; }
+    :root {
+      --bg: 18, 24, 38;
+      --card: 24, 32, 52;
+      --accent: 99, 102, 241;
+      --accent-2: 16, 185, 129;
+      --text: 243, 244, 246;
+      --muted: 156, 163, 175;
+      --ring: 79, 70, 229;
+      --glow: 99, 102, 241;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(var(--accent),0.25), rgba(var(--bg),0)) no-repeat,
+                  radial-gradient(1000px 600px at -10% 0%, rgba(var(--accent-2),0.2), rgba(var(--bg),0)) no-repeat,
+                  rgb(var(--bg));
+      color: rgb(var(--text));
+    }
+    .glass {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+    }
+    .ring-focus:focus { outline: none; box-shadow: 0 0 0 4px rgba(var(--ring), .35); }
+    .shine { position: relative; overflow: hidden; }
+    .shine:before {
+      content: ""; position: absolute; top: -120%; left: -120%; width: 240%; height: 240%;
+      background: conic-gradient(from 180deg, rgba(255,255,255,0.08), transparent 20%, transparent 80%, rgba(255,255,255,0.08));
+      transform: rotate(0deg); animation: rotate 16s linear infinite; pointer-events: none;
+    }
+    @keyframes rotate { to { transform: rotate(360deg); } }
+    .soft-gradient { background: linear-gradient(135deg, rgba(var(--accent),0.25), rgba(var(--accent-2),0.25)); }
+    .tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); }
+    .divider { height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.12), transparent); }
+    .table-wrap { overflow: auto; }
+    .emoji { filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25)); }
+
+    @media print {
+      body * { visibility: hidden !important; }
+      #cvDetails, #cvDetails * { visibility: visible !important; }
+      #cvDetails {
+        position: absolute; left: 0; top: 0; right: 0;
+        background: #fff !important; color: #111 !important; padding: 24px;
+      }
+      #cvDetails .text-gray-300, #cvDetails .text-gray-400 { color: #111 !important; }
+      #cvDetails .divider { display: none !important; }
+      a { color: #111 !important; text-decoration: none; }
+    }
   </style>
 </head>
-<body class="min-h-screen bg-gray-50 text-gray-800 font-sans antialiased">
-  <!-- Header -->
-  <header class="bg-emerald-600 text-white py-8">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h1 class="text-3xl md:text-4xl font-bold fade-in">Edwin Gutierrez Piza</h1>
-      <p class="mt-2 text-lg fade-in md:delay-100">
-        Marketing Portfolio | <a href="mailto:Edwin.june99@gmail.com" class="underline hover:text-emerald-200">Edwin.june99@gmail.com</a> | 
-        <a href="[your-linkedin-url]" class="underline hover:text-emerald-200" target="_blank">LinkedIn</a>
-      </p>
+<body class="antialiased selection:bg-indigo-400/30 selection:text-white">
+  <header class="sticky top-0 z-40 backdrop-blur border-b border-white/10 bg-black/20">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-xl soft-gradient grid place-items-center text-white font-bold">E</div>
+        <div class="text-sm">
+          <div class="font-semibold tracking-wide">Edwin Gutierrez Piza</div>
+          <div class="text-xs text-gray-300/80">Marketing Portfolio</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#about" class="text-gray-300 hover:text-white transition">About</a>
+        <a href="#case-study" class="text-gray-300 hover:text-white transition">Case Study</a>
+        <a href="#twitter" class="text-gray-300 hover:text-white transition">Viral Posts</a>
+        <a href="#skills" class="text-gray-300 hover:text-white transition">Skills</a>
+        <a href="#value" class="text-gray-300 hover:text-white transition">Value</a>
+        <a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a>
+        <button id="themeToggle" class="ml-2 text-xs px-3 py-1.5 rounded-full border border-white/10 hover:border-white/20 transition glass ring-focus">Toggle glow</button>
+      </nav>
+      <a id="ctaTop" href="#contact" class="md:ml-6 inline-flex items-center gap-2 text-sm px-4 py-2 rounded-xl bg-indigo-500 hover:bg-indigo-600 transition ring-focus">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 5.5 12.5 15m0 0L8 20l1.5-6.5M12.5 15 6 8.5"/></svg>
+        Work with me
+      </a>
     </div>
   </header>
 
-  <!-- About Me -->
-  <section id="about" class="max-w-5xl mx-auto px-6 py-12">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 fade-in">About Me</h2>
-    <p class="mt-4 text-gray-700 leading-relaxed fade-in md:delay-100">
-      I’m a business administration graduate with expertise in designing high-converting B2B marketing funnels and content strategies for tech startups. I specialize in crafting ROI-driven solutions for municipal water utilities facing water loss and compliance challenges. My experience spans Web3 content creation, marketing automation, and technical customer support, enabling me to connect with audiences and deliver measurable results.
-    </p>
-  </section>
+  <section class="relative">
+    <div class="max-w-6xl mx-auto px-6 pt-16 pb-10 md:pt-24 md:pb-16">
+      <div class="grid md:grid-cols-12 gap-10 items-center">
+        <div class="md:col-span-7">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full tag text-xs text-gray-200">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> Available for Marketing roles
+          </div>
+          <h1 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">
+            Data‑driven content and growth systems that move the needle
+          </h1>
+          <p class="mt-4 text-gray-300 md:text-lg">
+            I design clear, measurable funnels and automations that scale web-based outreach—combining content strategy, SEO, and platform know-how to drive engagement and results.
+          </p>
 
-  <!-- Case Study: Water Tech Funnel -->
-  <section id="water-tech" class="max-w-5xl mx-auto px-6 py-12 bg-white border border-gray-200 rounded-xl">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 fade-in">Case Study: Water Tech Marketing Funnel</h2>
-    <p class="mt-4 text-gray-700 leading-relaxed fade-in md:delay-100">
-      Designed a B2B marketing funnel for WaterLoss Insights, a water tech startup reducing municipal water loss through smart sensors and software.
-    </p>
-    <div class="mt-6 grid md:grid-cols-2 gap-6">
-      <div>
-        <h3 class="text-xl font-semibold text-gray-900">Components</h3>
-        <ul class="mt-2 text-gray-700 list-disc list-inside">
-          <li><strong>Landing Page</strong>: HTML/Tailwind CSS with a water loss calculator and guide download (10%+ conversion rate).</li>
-          <li><strong>Email Sequence</strong>: 8 emails over 16 days, achieving 30%+ open rates and 25% demo bookings.</li>
-          <li><strong>Funnel Strategy</strong>: Multi-channel approach (LinkedIn, SEO, webinars) targeting Public Works Directors and Utility Managers.</li>
-        </ul>
-        <h3 class="mt-4 text-xl font-semibold text-gray-900">Results</h3>
-        <p class="mt-2 text-gray-700">Projected 60+ qualified leads/month, 15 demos, and 3-4 clients ($225K-$300K monthly revenue).</p>
-        <div class="mt-4 flex flex-wrap gap-4">
-          <a href="[your-landing-page-url]" class="focus-ring rounded-lg bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-4 py-2 transition glow" target="_blank" onclick="gtag('event', 'click', {'event_category': 'Portfolio', 'event_label': 'Water Tech Demo'})">View Live Demo</a>
-          <a href="[your-funnel-pdf-url]" class="focus-ring rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold px-4 py-2 transition border border-gray-300" target="_blank" onclick="gtag('event', 'click', {'event_category': 'Portfolio', 'event_label': 'Funnel PDF'})">Download Funnel PDF</a>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#case-study" class="px-5 py-3 rounded-xl bg-indigo-500 hover:bg-indigo-600 transition font-semibold ring-focus">See case study</a>
+            <a id="emailBtn" href="mailto:Edwin.june99@gmail.com" class="px-5 py-3 rounded-xl glass hover:bg-white/5 transition ring-focus">Email me</a>
+            <button id="linkedinBtn" class="px-5 py-3 rounded-xl glass hover:bg-white/5 transition ring-focus flex items-center gap-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9h3v9H6zM7.5 6.75A1.75 1.75 0 1 0 7.5 3.25a1.75 1.75 0 0 0 0 3.5ZM14.5 9c-1.4 0-2.5 1.1-2.5 2.5V18h3v-5c0-.55.45-1 1-1s1 .45 1 1v5h3v-6.2A2.8 2.8 0 0 0 17.2 9h-2.7z" fill="white"/></svg>
+              LinkedIn
+            </button>
+          </div>
+
+          <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+            <div class="glass rounded-xl p-4">
+              <div class="text-2xl font-extrabold">600K+</div>
+              <div class="text-xs text-gray-400">Social impressions</div>
+            </div>
+            <div class="glass rounded-xl p-4">
+              <div class="text-2xl font-extrabold">30K</div>
+              <div class="text-xs text-gray-400">Top video views</div>
+            </div>
+            <div class="glass rounded-xl p-4">
+              <div class="text-2xl font-extrabold">4+</div>
+              <div class="text-xs text-gray-400">Influencer collabs</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-5">
+          <div class="glass rounded-2xl p-6 shine">
+            <div class="flex items-center gap-3">
+              <div class="text-4xl emoji">🎯</div>
+              <div>
+                <div class="text-sm text-gray-300">Focus area</div>
+                <div class="font-semibold">Content, Funnels, Automation</div>
+              </div>
+            </div>
+            <div class="divider my-6"></div>
+            <ul class="space-y-3 text-sm">
+              <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">•</span><span>Built community and content in Web3, plus technical support for web platforms.</span></li>
+              <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">•</span><span>Expert at mapping journeys and creating measurable systems.</span></li>
+              <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">•</span><span>Comfortable collaborating with creators and KOLs to amplify reach.</span></li>
+            </ul>
+            <div class="mt-6 flex gap-2">
+              <a href="#twitter" class="px-4 py-2 rounded-lg border border-white/10 hover:border-white/20 transition text-sm ring-focus">See viral posts</a>
+              <a href="#skills" class="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 transition text-sm ring-focus">Skills</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="gallery">
-        <img src="[hero-screenshot.png]" alt="Water Tech Landing Page Hero">
-        <img src="[calculator-screenshot.png]" alt="Water Loss Calculator">
-      </div>
-    </div>
-    <!-- Funnel Diagram -->
-    <div class="mt-6">
-      <h3 class="text-xl font-semibold text-gray-900">Funnel Diagram</h3>
-      <svg viewBox="0 0 400 600" class="w-full h-96 mt-4">
-        <path d="M50 50 H350 L300 200 H100 Z" fill="#34D399" stroke="#1e293b" stroke-width="2"/>
-        <text x="200" y="80" text-anchor="middle" fill="#1e293b" font-size="16" font-family="Inter, sans-serif">Awareness</text>
-        <text x="200" y="110" text-anchor="middle" fill="#1e293b" font-size="12">3,000 Visitors → 300 Leads (10%)</text>
-        <text x="200" y="140" text-anchor="middle" fill="#1e293b" font-size="10">LinkedIn, SEO, Webinars, Direct Mail</text>
-        <path d="M100 200 H300 L250 350 H150 Z" fill="#34D399" stroke="#1e293b" stroke-width="2"/>
-        <text x="200" y="230" text-anchor="middle" fill="#1e293b" font-size="16">Interest</text>
-        <text x="200" y="260" text-anchor="middle" fill="#1e293b" font-size="12">60 Qualified Leads → 15 Demos (25%)</text>
-        <text x="200" y="290" text-anchor="middle" fill="#1e293b" font-size="10">Email, SMS, Calculator</text>
-        <path d="M150 350 H250 L225 500 H175 Z" fill="#34D399" stroke="#1e293b" stroke-width="2"/>
-        <text x="200" y="380" text-anchor="middle" fill="#1e293b" font-size="16">Consideration</text>
-        <text x="200" y="410" text-anchor="middle" fill="#1e293b" font-size="12">7-8 Proposals → 3-4 Clients (50%)</text>
-        <text x="200" y="440" text-anchor="middle" fill="#1e293b" font-size="10">Demos, Proposals, ROI Reports</text>
-        <text x="200" y="530" text-anchor="middle" fill="#34D399" font-size="14">$225K-$300K Revenue/Month</text>
-      </svg>
     </div>
   </section>
 
-  <!-- Case Study: Content Creation -->
-  <section id="content-creation" class="max-w-5xl mx-auto px-6 py-12">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 fade-in">Case Study: Content Creation & Audience Engagement</h2>
-    <p class="mt-4 text-gray-700 leading-relaxed fade-in md:delay-100">
-      Demonstrated expertise in producing high-impact video content to build community and drive engagement via my “Exito Emprendedor” YouTube channel.
-    </p>
-    <div class="mt-6">
-      <h3 class="text-xl font-semibold text-gray-900">Key Videos</h3>
-      <ul class="mt-2 text-gray-700 list-disc list-inside">
-        <li><strong>30K Views</strong>: Sales Psychology: Sell to the Mind of the Customer (<a href="[video-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a>)</li>
-        <li><strong>2.9K Views</strong>: Richard Montañez: From Janitor to Flamin’ Hot Cheetos Inventor (<a href="[video-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a>)</li>
-        <li><strong>1.9K Views</strong>: Book Summary: How to Win Friends and Influence People (<a href="[video-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a>)</li>
-      </ul>
-      <h3 class="mt-4 text-xl font-semibold text-gray-900">Collaborations with Ben Gothard</h3>
-      <p class="mt-2 text-gray-700">Produced educational Web3 videos with influencer Ben Gothard, showcasing expertise in DeFi and emerging tech:</p>
-      <ul class="mt-2 text-gray-700 list-disc list-inside">
-        <li>Thorchain: Secure Cross-Chain Swaps (<a href="[video-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a>)</li>
-        <li>The Future of Wearables & Implantables (<a href="[video-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a>)</li>
-        <li>Bitcoin NFTs & Ordinals (<a href="[video-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a>)</li>
-        <li>Web3 Evolution: Building, Trading, and Thriving (<a href="[video-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a>)</li>
-      </ul>
-      <h3 class="mt-4 text-xl font-semibold text-gray-900">Results</h3>
-      <p class="mt-2 text-gray-700">Achieved 600K impressions on X in Q3 2024, with 250K in a single day, and consistent YouTube views (30K+), outperforming B2B tech averages (5-10K).</p>
-    </div>
-  </section>
-
-  <!-- X Presence -->
-  <section id="x-presence" class="max-w-5xl mx-auto px-6 py-12 bg-white border border-gray-200 rounded-xl">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 fade-in">X Presence & Growth Hacking</h2>
-    <p class="mt-4 text-gray-700 leading-relaxed fade-in md:delay-100">
-      Leveraged strategic growth-hacking (guided by influencer TVD) to achieve 600K impressions on X in Q3 2024, with 250K in one day via viral political and meme content.
-    </p>
-    <div class="mt-6 overflow-x-auto">
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Post Summary</th>
-            <th>Views</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Joe Rogan Maui–Ukraine Commentary</td>
-            <td>105.2K</td>
-            <td><a href="[post-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Lisa Simpson Psyops Meme</td>
-            <td>66.1K</td>
-            <td><a href="[post-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Biden Wildfire Relief Critique</td>
-            <td>41.4K</td>
-            <td><a href="[post-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a></td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Musk Gaming Controversy Response</td>
-            <td>34.4K</td>
-            <td><a href="[post-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a></td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Yilongma Livestream Hype</td>
-            <td>24.1K</td>
-            <td><a href="[post-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a></td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>Trump Wildfire Warning Vindication</td>
-            <td>21K</td>
-            <td><a href="[post-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a></td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>Back to the Future Tribute</td>
-            <td>17.4K</td>
-            <td><a href="[post-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a></td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>Zuckerberg & Hegseth Clip Reaction</td>
-            <td>14K</td>
-            <td><a href="[post-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a></td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>Pam Bondi vs. Hirono Hearing</td>
-            <td>10.2K</td>
-            <td><a href="[post-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a></td>
-          </tr>
-          <tr>
-            <td>10</td>
-            <td>Relationship Meme Clip</td>
-            <td>10K</td>
-            <td><a href="[post-link]" class="text-emerald-500 hover:underline" target="_blank">Link</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- Tools & Skills -->
-  <section id="tools" class="max-w-5xl mx-auto px-6 py-12">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 fade-in">Tools & Skills</h2>
-    <p class="mt-4 text-gray-700 leading-relaxed fade-in md:delay-100">
-      Proficient in tools and strategies to build and manage high-performing marketing funnels:
-    </p>
-    <div class="mt-6 grid md:grid-cols-2 gap-6">
-      <div>
-        <h3 class="text-xl font-semibold text-gray-900">Marketing Automation & Web Platforms</h3>
-        <p class="mt-2 text-gray-700">Experienced with GoHighLevel, Wix, and WordPress for creating automated email/SMS sequences and high-converting landing pages.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-gray-900">Content Creation</h3>
-        <p class="mt-2 text-gray-700">Skilled in Canva for visuals, Adobe Premiere for video production, and SEO for content visibility.</p>
-      </div>
-      <div>
-        <h3 class="text-xl font-semibold text-gray-900">Customer Relations & Support</h3>
-        <p class="mt-2 text-gray-700">Background in customer care at Wix and hotel sales, ensuring strong client communication and problem-solving for tech products.</p>
+  <section id="about" class="py-14">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-12 gap-8 items-start">
+        <div class="md:col-span-7">
+          <h2 class="text-2xl md:text-3xl font-bold">About Me</h2>
+          <p class="mt-4 text-gray-300">
+            I am a business administration graduate with a proven track record of designing and executing content strategies that drive significant engagement. My work is focused on creating clear, measurable marketing funnels and automations to help tech companies scale their web-based outreach.
+          </p>
+          <p class="mt-4 text-gray-300">
+            My experience spans from creating community and content in the Web3 space to providing technical customer support for web-based platforms, all of which has given me a deep understanding of how to connect with an audience and achieve tangible results.
+          </p>
+        </div>
+        <div class="md:col-span-5">
+          <div class="glass rounded-2xl p-6">
+            <div class="text-sm text-gray-300">Contact</div>
+            <div class="mt-2 text-lg font-semibold">Edwin Gutierrez Piza</div>
+            <div class="mt-1 text-sm text-gray-300">Email: <a class="text-indigo-300 hover:underline" href="mailto:Edwin.june99@gmail.com">Edwin.june99@gmail.com</a></div>
+            <div class="mt-1 text-sm text-gray-300">LinkedIn: <button id="linkedinInlineBtn" class="text-indigo-300 hover:underline">Open</button></div>
+            <div class="divider my-5"></div>
+            <div class="grid grid-cols-3 gap-3">
+              <div class="rounded-xl p-4 tag text-center"><div class="text-xl">📈</div><div class="text-xs text-gray-300 mt-1">Funnels</div></div>
+              <div class="rounded-xl p-4 tag text-center"><div class="text-xl">🎥</div><div class="text-xs text-gray-300 mt-1">Video</div></div>
+              <div class="rounded-xl p-4 tag text-center"><div class="text-xl">🔍</div><div class="text-xs text-gray-300 mt-1">SEO</div></div>
+            </div>
+            <button id="setLinkedIn" class="mt-5 w-full px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition text-sm font-semibold ring-focus">Set/Update LinkedIn URL</button>
+            <p class="mt-2 text-xs text-gray-400">Note: You haven’t shared your LinkedIn link yet. Use the button to add it—saved on your device.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section id="cta" class="max-w-5xl mx-auto px-6 py-12 text-center bg-emerald-50 rounded-xl">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 fade-in">Ready to Build Your Funnel?</h2>
-    <p class="mt-4 text-gray-700 leading-relaxed fade-in md:delay-100">
-      I’m prepared to design a high-converting B2B funnel for your water tech startup, like the one driving $225K-$300K/month for WaterLoss Insights. Let’s discuss by 8 PM CST today, September 12, 2025.
-    </p>
-    <div class="mt-6 flex flex-wrap justify-center gap-4">
-      <a href="mailto:Edwin.june99@gmail.com" class="focus-ring rounded-lg bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 transition glow" onclick="gtag('event', 'click', {'event_category': 'Portfolio', 'event_label': 'Contact Email'})">Contact Me</a>
-      <a href="[your-cv-url]" class="focus-ring rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold px-6 py-3 transition border border-gray-300" target="_blank" onclick="gtag('event', 'click', {'event_category': 'Portfolio', 'event_label': 'View CV'})">View My CV</a>
+  <section id="case-study" class="py-14">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl md:text-3xl font-bold">Case Study: Content Creation & Audience Engagement</h2>
+        <span class="text-xs px-3 py-1 rounded-full tag text-gray-300 hidden md:inline">Overview</span>
+      </div>
+
+      <p class="mt-4 text-gray-300">
+        This case study demonstrates my ability to produce high-impact video content that builds community, drives engagement, and showcases expertise.
+      </p>
+
+      <!-- Personal YouTube thumbnails -->
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-0 overflow-hidden flex flex-col">
+          <a href="https://www.youtube.com/watch?v=HysRymsuCjU" target="_blank" rel="noopener" class="relative w-full aspect-video block">
+            <img src="https://img.youtube.com/vi/HysRymsuCjU/hqdefault.jpg" alt="Sales Psychology thumbnail" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+            <div class="absolute inset-0 grid place-items-center">
+              <div class="h-12 w-12 rounded-full bg-black/50 grid place-items-center backdrop-blur">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </a>
+          <div class="p-5">
+            <div class="text-sm text-gray-400">29K views</div>
+            <div class="font-semibold">Sales Psychology: Sell to the Mind of the Customer</div>
+            <p class="text-gray-300 mt-2 text-sm">Explores how understanding customer psychology can improve sales techniques.</p>
+            <a target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-2 text-sm text-indigo-300 hover:underline" href="https://www.youtube.com/watch?v=HysRymsuCjU">
+              Watch on YouTube
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="glass rounded-2xl p-0 overflow-hidden flex flex-col">
+          <a href="https://www.youtube.com/watch?v=U2lQpEeeKN0" target="_blank" rel="noopener" class="relative w-full aspect-video block">
+            <img src="https://img.youtube.com/vi/U2lQpEeeKN0/hqdefault.jpg" alt="Richard Montañez thumbnail" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+            <div class="absolute inset-0 grid place-items-center">
+              <div class="h-12 w-12 rounded-full bg-black/50 grid place-items-center backdrop-blur">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </a>
+          <div class="p-5">
+            <div class="text-sm text-gray-400">2.8K views</div>
+            <div class="font-semibold">Richard Montañez: From Janitor to Flamin' Hot Cheetos Inventor</div>
+            <p class="text-gray-300 mt-2 text-sm">A story of innovation and understanding customer needs.</p>
+            <a target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-2 text-sm text-indigo-300 hover:underline" href="https://www.youtube.com/watch?v=U2lQpEeeKN0">
+              Watch on YouTube
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="glass rounded-2xl p-0 overflow-hidden flex flex-col">
+          <a href="https://www.youtube.com/watch?v=5BF0Ruj_ljk" target="_blank" rel="noopener" class="relative w-full aspect-video block">
+            <img src="https://img.youtube.com/vi/5BF0Ruj_ljk/hqdefault.jpg" alt="How to Win Friends thumbnail" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+            <div class="absolute inset-0 grid place-items-center">
+              <div class="h-12 w-12 rounded-full bg-black/50 grid place-items-center backdrop-blur">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </a>
+          <div class="p-5">
+            <div class="text-sm text-gray-400">1.9K views</div>
+            <div class="font-semibold">Book Summary: How to Win Friends and Influence People</div>
+            <p class="text-gray-300 mt-2 text-sm">Key takeaways for effective communication and building relationships.</p>
+            <a target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-2 text-sm text-indigo-300 hover:underline" href="https://www.youtube.com/watch?v=5BF0Ruj_ljk">
+              Watch on YouTube
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-6">
+          <div class="text-sm text-gray-400">Results</div>
+          <ul class="mt-3 space-y-3 text-sm">
+            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">✓</span><span>600,000+ impressions across social; 250,000 in a single day on X.</span></li>
+            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">✓</span><span>Consistent thousands of YouTube views, strong retention and engagement.</span></li>
+          </ul>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <div class="text-sm text-gray-400">Influencer Collaborations</div>
+          <ul class="mt-3 space-y-3 text-sm">
+            <li class="flex items-start gap-3"><span class="text-indigo-300 mt-0.5">•</span><span>Thorchain: Secure Cross-Chain Swaps</span></li>
+            <li class="flex items-start gap-3"><span class="text-indigo-300 mt-0.5">•</span><span>The Future of Wearables & Implantables</span></li>
+            <li class="flex items-start gap-3"><span class="text-indigo-300 mt-0.5">•</span><span>Bitcoin NFTs & Ordinals: Expert Interview</span></li>
+            <li class="flex items-start gap-3"><span class="text-indigo-300 mt-0.5">•</span><span>Web3 Evolution: Building, Trading, and Thriving</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- New: Collaborations with Ben Gothard gallery -->
+      <div class="mt-10">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xl md:text-2xl font-bold">Collaborations with Ben Gothard</h3>
+          <span class="text-xs px-3 py-1 rounded-full tag text-gray-300 hidden md:inline">Web3 Education</span>
+        </div>
+        <p class="mt-3 text-gray-300 text-sm">A selection of educational Web3 videos created in collaboration with influencer Ben Gothard.</p>
+
+        <div class="mt-6 grid md:grid-cols-4 gap-6">
+          <!-- Thorchain -->
+          <div class="glass rounded-2xl p-0 overflow-hidden flex flex-col">
+            <a href="https://www.youtube.com/watch?v=MBYLJSqL_CE" target="_blank" rel="noopener" class="relative w-full aspect-video block">
+              <img src="https://img.youtube.com/vi/MBYLJSqL_CE/hqdefault.jpg" alt="Thorchain: Secure Cross-Chain Swaps thumbnail" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+              <div class="absolute inset-0 grid place-items-center">
+                <div class="h-10 w-10 rounded-full bg-black/50 grid place-items-center backdrop-blur">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </a>
+            <div class="p-4">
+              <div class="text-xs text-gray-400">Collaboration</div>
+              <div class="font-semibold text-sm">Thorchain: Secure Cross-Chain Swaps</div>
+              <a href="https://youtu.be/MBYLJSqL_CE?si=hWQyLdyva1KRspWe" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-2 text-xs text-indigo-300 hover:underline">Watch
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+          <!-- Wearables & Implantables -->
+          <div class="glass rounded-2xl p-0 overflow-hidden flex flex-col">
+            <a href="https://www.youtube.com/watch?v=HjBUPXmyEJU" target="_blank" rel="noopener" class="relative w-full aspect-video block">
+              <img src="https://img.youtube.com/vi/HjBUPXmyEJU/hqdefault.jpg" alt="The Future of Wearables & Implantables thumbnail" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+              <div class="absolute inset-0 grid place-items-center">
+                <div class="h-10 w-10 rounded-full bg-black/50 grid place-items-center backdrop-blur">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </a>
+            <div class="p-4">
+              <div class="text-xs text-gray-400">Collaboration</div>
+              <div class="font-semibold text-sm">The Future of Wearables & Implantables</div>
+              <a href="https://youtu.be/HjBUPXmyEJU?si=X-mN4SN-Tp7KxmqE" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-2 text-xs text-indigo-300 hover:underline">Watch
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+          <!-- Bitcoin NFTs & Ordinals -->
+          <div class="glass rounded-2xl p-0 overflow-hidden flex flex-col">
+            <a href="https://www.youtube.com/watch?v=LR2mWpvk_Mc" target="_blank" rel="noopener" class="relative w-full aspect-video block">
+              <img src="https://img.youtube.com/vi/LR2mWpvk_Mc/hqdefault.jpg" alt="Bitcoin NFTs & Ordinals thumbnail" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+              <div class="absolute inset-0 grid place-items-center">
+                <div class="h-10 w-10 rounded-full bg-black/50 grid place-items-center backdrop-blur">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </a>
+            <div class="p-4">
+              <div class="text-xs text-gray-400">Collaboration</div>
+              <div class="font-semibold text-sm">Bitcoin NFTs & Ordinals</div>
+              <a href="https://youtu.be/LR2mWpvk_Mc?si=jQE89AvuNVQ__CMe" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-2 text-xs text-indigo-300 hover:underline">Watch
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+          <!-- Web3 Evolution -->
+          <div class="glass rounded-2xl p-0 overflow-hidden flex flex-col">
+            <a href="https://www.youtube.com/watch?v=W_mAHVnBRDM" target="_blank" rel="noopener" class="relative w-full aspect-video block">
+              <img src="https://img.youtube.com/vi/W_mAHVnBRDM/hqdefault.jpg" alt="Web3 Evolution thumbnail" class="w-full h-full object-cover" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+              <div class="absolute inset-0 grid place-items-center">
+                <div class="h-10 w-10 rounded-full bg-black/50 grid place-items-center backdrop-blur">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </a>
+            <div class="p-4">
+              <div class="text-xs text-gray-400">Collaboration</div>
+              <div class="font-semibold text-sm">Web3 Evolution: Building, Trading, and Thriving</div>
+              <a href="https://youtu.be/W_mAHVnBRDM?si=oiG_NSIhTmCU4GWG" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-2 text-xs text-indigo-300 hover:underline">Watch
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End collaborations gallery -->
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white text-center py-6">
-    <p>© 2025 Edwin Gutierrez Piza | Built with Passion for Tech Startups</p>
+  <section id="twitter" class="py-14">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl md:text-3xl font-bold">X (Twitter) Presence & Growth Hacking</h2>
+        <span class="text-xs px-3 py-1 rounded-full tag text-gray-300 hidden md:inline">600K+ Views</span>
+      </div>
+      <p class="mt-4 text-gray-300">
+        Strategy-led content delivered over 600,000 views, with 250,000 in a single day—guided by growth tactics learned from influencer TVD.
+      </p>
+
+      <div class="glass rounded-2xl p-4 mt-8 table-wrap">
+        <table class="min-w-[720px] w-full text-left text-sm">
+          <thead>
+            <tr class="text-gray-300">
+              <th class="py-3 px-3 font-semibold">#</th>
+              <th class="py-3 px-3 font-semibold">Post Summary</th>
+              <th class="py-3 px-3 font-semibold">Views</th>
+              <th class="py-3 px-3 font-semibold">Link</th>
+              <th class="py-3 px-3 font-semibold text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody id="viralTable" class="divide-y divide-white/10">
+          </tbody>
+        </table>
+      </div>
+      <div class="flex gap-2 mt-4">
+        <button id="exportLinks" class="px-4 py-2 rounded-lg glass hover:bg-white/5 transition ring-focus text-sm">Export links</button>
+        <button id="importLinks" class="px-4 py-2 rounded-lg glass hover:bg-white/5 transition ring-focus text-sm">Import links</button>
+        <button id="bulkLinks" class="px-4 py-2 rounded-lg glass hover:bg-white/5 transition ring-focus text-sm">Bulk add links</button>
+        <button id="clearLinks" class="px-4 py-2 rounded-lg bg-rose-500/80 hover:bg-rose-500 transition ring-focus text-sm">Clear all</button>
+      </div>
+      <p class="mt-2 text-xs text-gray-400">Tip: Add your X post URLs to each row. They’ll be saved on your device for next time.</p>
+    </div>
+  </section>
+
+  <section id="skills" class="py-14">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-2xl md:text-3xl font-bold">Experience with Key Marketing Tools & Skills</h2>
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <div class="glass rounded-2xl p-6">
+          <div class="text-sm text-gray-300">Marketing Automation & Web Platforms</div>
+          <p class="mt-2 text-gray-300 text-sm">Principles of marketing automation, automated email/SMS sequences. Experience with Wix and WordPress to build and manage high-performing landing pages.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full tag text-xs">Wix</span>
+            <span class="px-3 py-1 rounded-full tag text-xs">WordPress</span>
+            <span class="px-3 py-1 rounded-full tag text-xs">Email Flows</span>
+            <span class="px-3 py-1 rounded-full tag text-xs">SMS</span>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <div class="text-sm text-gray-300">Content Creation</div>
+          <p class="mt-2 text-gray-300 text-sm">Canva for professional visuals and Adobe Premiere for video production. SEO knowledge to optimize content for visibility.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full tag text-xs">Canva</span>
+            <span class="px-3 py-1 rounded-full tag text-xs">Adobe Premiere</span>
+            <span class="px-3 py-1 rounded-full tag text-xs">SEO</span>
+            <span class="px-3 py-1 rounded-full tag text-xs">YouTube</span>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 md:col-span-2">
+          <div class="text-sm text-gray-300">Customer Relations & Support</div>
+          <p class="mt-2 text-gray-300 text-sm">Customer care at Wix and hotel sales reservations—strong foundation in direct communication, client relationships, and empathetic problem-solving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="value" class="py-14">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-2xl md:text-3xl font-bold">What I Bring to Your Team</h2>
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <div class="glass rounded-2xl p-6">
+          <ul class="space-y-4 text-sm text-gray-300">
+            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">✓</span><span>Designing a scalable marketing funnel to replace traditional outreach with an automated, web-based system.</span></li>
+            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">✓</span><span>Implementing landing pages and automations to capture leads and guide them through the sales process, leveraging my direct experience with web platforms.</span></li>
+            <li class="flex items-start gap-3"><span class="text-emerald-400 mt-0.5">✓</span><span>Collaborating effectively with your technical team to translate marketing goals into actionable strategies and optimize internal processes.</span></li>
+          </ul>
+        </div>
+
+        <div class="glass rounded-2xl p-6">
+          <div class="flex items-center gap-3">
+            <div class="h-10 w-10 rounded-xl soft-gradient grid place-items-center text-white font-bold">📄</div>
+            <div>
+              <div class="text-sm text-gray-300">My Full CV</div>
+              <div class="font-semibold">View, download, or update</div>
+            </div>
+          </div>
+          <p class="mt-3 text-sm text-gray-300">For more on my background and skills, view my full CV. Replace the placeholder with your direct CV link (PDF, Drive, or website).</p>
+          <div class="mt-5 flex flex-wrap gap-3">
+            <button id="viewCV" class="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition text-sm font-semibold ring-focus">View My CV</button>
+            <button id="downloadCV" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 transition text-sm font-semibold ring-focus">Download PDF</button>
+            <button id="printCV" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition text-sm font-semibold ring-focus">Print to PDF</button>
+            <button id="setCV" class="px-4 py-2 rounded-lg glass hover:bg-white/5 transition text-sm ring-focus">Set/Update CV URL</button>
+            <button id="toggleCVDetails" class="px-4 py-2 rounded-lg glass hover:bg-white/5 transition text-sm ring-focus">Show details</button>
+          </div>
+
+          <div id="cvDetails" class="mt-6 hidden bg-white/5 rounded-xl p-5">
+            <div class="space-y-6 text-sm text-gray-200">
+              <div>
+                <h3 class="text-base font-semibold">EDWIN GUTIERREZ PIZA</h3>
+                <p class="text-gray-300">Business Administration</p>
+                <div class="mt-2 text-xs text-gray-400">Querétaro, Qro · 461 114 5929 · Edwin.june99@gmail.com · linkedin.com/in/edwin-gutierrez-piza</div>
+              </div>
+              <div>
+                <h4 class="font-semibold">Professional Summary</h4>
+                <ul class="mt-2 list-disc list-inside text-gray-300 space-y-1">
+                  <li>Business Administration graduate with proven success in Web3 community management and content creation.</li>
+                  <li>Drove 600K+ social media impressions through strategic content and growth tactics.</li>
+                  <li>Seeking to leverage business acumen and digital community expertise in tech or crypto-focused roles.</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold">Professional Experience</h4>
+                <ul class="mt-2 space-y-4 text-gray-300">
+                  <li>
+                    <div class="font-medium text-white">Reservations Sales Specialist — WWA | May 2025 – Present</div>
+                    <ul class="list-disc list-inside ml-1 space-y-1">
+                      <li>Built B2B relationships with hotels, securing reservations via targeted outreach and CRM tools.</li>
+                      <li>Developed lead‑nurturing strategies achieving a 25% conversion rate.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="font-medium text-white">Customer Care Representative — Wix | Jun 2024 – May 2025</div>
+                    <ul class="list-disc list-inside ml-1 space-y-1">
+                      <li>Designed and optimized client landing pages, integrating tracking to monitor performance.</li>
+                      <li>Trained in website/domain policies and procedures, improving client satisfaction.</li>
+                      <li>Managed inquiries via CRM, improving response times by 15%.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="font-medium text-white">Business Operations Intern — Agrícola Pantoni S de PR de RL de CV | Feb 2024 – May 2024</div>
+                    <ul class="list-disc list-inside ml-1 space-y-1">
+                      <li>Implemented process documentation and operational workflows.</li>
+                      <li>Collaborated cross‑functionally to optimize business procedures.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="font-medium text-white">Academic Support Coordinator (Social Service) — Cuidadores UAQ | Feb 2023 – Aug 2023</div>
+                    <ul class="list-disc list-inside ml-1 space-y-1">
+                      <li>Managed scheduling and coordination for academic support programs.</li>
+                      <li>Increased student engagement through personalized support.</li>
+                      <li>Maintained stakeholder communications.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="font-medium text-white">Event Promotion Coordinator (Social Service) — ENMS Celaya | Jan 2017 – Jan 2018</div>
+                    <ul class="list-disc list-inside ml-1 space-y-1">
+                      <li>Increased event attendance by 60% via strategic promotion.</li>
+                      <li>Coordinated and executed student engagement events.</li>
+                      <li>Managed multi‑channel promotional campaigns.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold">Web3 & Community Leadership</h4>
+                <ul class="mt-2 list-disc list-inside text-gray-300 space-y-1">
+                  <li>Founding Member — Neo Tokyo NFT | Oct 2021 – Present</li>
+                  <li>Content Creator — Independent | Aug 2018 – Present</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold">Education</h4>
+                <ul class="mt-2 list-disc list-inside text-gray-300 space-y-1">
+                  <li>Bachelor of Business Administration — Universidad Autónoma de Querétaro | Jul 2019 – Nov 2024 | Querétaro, Qro</li>
+                  <li>Diploma in Strategic Entrepreneurship Development — FCA‑UAQ | Jan 2024 – Jun 2024</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold">Skills</h4>
+                <ul class="mt-2 list-disc list-inside text-gray-300 space-y-1">
+                  <li>Technical: MetaMask, Etherscan, Discord, Telegram</li>
+                  <li>Content: Adobe Premiere, Canva, WordPress, SEO</li>
+                  <li>DeFi: DEX trading, liquidity pools, ICO participation</li>
+                  <li>Business & Professional: Project management, event planning, community coordination, process optimization</li>
+                  <li>Communication: Public speaking, content strategy, team collaboration</li>
+                  <li>Languages: English (Native), Spanish (Mother Tongue)</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold">Leadership & Certifications</h4>
+                <ul class="mt-2 list-disc list-inside text-gray-300 space-y-1">
+                  <li>Toastmasters International | Jan 2016 – Dec 2023 — Club Splendor Secretary (2017–2018); Competent Communicator, Competent Leadership, Advanced Leadership Bronze.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <p class="mt-2 text-xs text-gray-400">Note: Your CV link is stored on your device only.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-14">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="glass rounded-2xl p-8 md:p-10">
+        <div class="grid md:grid-cols-3 gap-8 items-center">
+          <div class="md:col-span-2">
+            <h3 class="text-xl md:text-2xl font-bold">Let’s build something that grows</h3>
+            <p class="mt-2 text-gray-300">I’m open to roles and collaborations where content, funnels, and thoughtful automation can drive measurable outcomes.</p>
+          </div>
+          <div class="flex md:justify-end gap-3">
+            <a href="mailto:Edwin.june99@gmail.com" class="px-5 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 transition font-semibold ring-focus">Email Edwin</a>
+            <button id="openLinkedIn" class="px-5 py-3 rounded-xl glass hover:bg-white/5 transition font-semibold ring-focus">LinkedIn</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="text-sm text-gray-400">© <span id="year"></span> Edwin Gutierrez Piza. All rights reserved.</div>
+      <div class="flex items-center gap-3 text-sm">
+        <a class="text-gray-300 hover:text-white transition" href="#about">About</a>
+        <a class="text-gray-300 hover:text-white transition" href="#case-study">Case Study</a>
+        <a class="text-gray-300 hover:text-white transition" href="#twitter">Viral Posts</a>
+        <a class="text-gray-300 hover:text-white transition" href="#skills">Skills</a>
+      </div>
+    </div>
   </footer>
 
+  <div id="modalBackdrop" class="hidden fixed inset-0 bg-black/60 z-50"></div>
+  <div id="modal" class="hidden fixed inset-0 z-50 grid place-items-center p-6">
+    <div class="w-full max-w-md glass rounded-2xl p-6">
+      <h3 id="modalTitle" class="text-lg font-bold">Set LinkedIn URL</h3>
+      <p id="modalDesc" class="mt-1 text-sm text-gray-300">Paste your LinkedIn profile URL below. It will be saved on this device.</p>
+      <input id="modalInput" type="url" placeholder="https://www.linkedin.com/in/your-handle" class="mt-4 w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 ring-focus placeholder:text-gray-500 text-sm" />
+      <div class="mt-5 flex justify-end gap-2">
+        <button id="modalCancel" class="px-4 py-2 rounded-lg glass hover:bg-white/5 transition text-sm">Cancel</button>
+        <button id="modalSave" class="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition text-sm font-semibold">Save</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    const LS_LINKEDIN = 'edwin_linkedin_url';
+    const LS_VIRAL = 'edwin_viral_links';
+    const LS_CV = 'edwin_cv_url';
+
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+    const on = (el, ev, fn) => el && el.addEventListener(ev, fn);
+    const validUrl = (u) => /^https?:\/\//i.test(u);
+
+    $('#year').textContent = new Date().getFullYear();
+
+    const themeToggle = $('#themeToggle');
+    let glowOn = true;
+    const setGlow = (onGlow) => {
+      glowOn = onGlow;
+      document.body.style.background = onGlow
+        ? 'radial-gradient(1200px 600px at 80% -10%, rgba(var(--accent),0.25), rgba(var(--bg),0)) no-repeat, radial-gradient(1000px 600px at -10% 0%, rgba(var(--accent-2),0.2), rgba(var(--bg),0)) no-repeat, rgb(var(--bg))'
+        : 'rgb(var(--bg))';
+    };
+    on(themeToggle, 'click', () => setGlow(!glowOn));
+
+    const backdrop = $('#modalBackdrop');
+    const modal = $('#modal');
+    const modalTitle = $('#modalTitle');
+    const modalDesc = $('#modalDesc');
+    const modalInput = $('#modalInput');
+    const modalCancel = $('#modalCancel');
+    const modalSave = $('#modalSave');
+    let modalHandler = null;
+
+    function openModal({ title, desc, initial = '', onSave }) {
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modalInput.value = initial || '';
+      modalHandler = onSave || null;
+      backdrop.classList.remove('hidden');
+      modal.classList.remove('hidden');
+      setTimeout(() => modalInput.focus(), 0);
+    }
+    function closeModal() {
+      backdrop.classList.add('hidden');
+      modal.classList.add('hidden');
+      modalHandler = null;
+      modalInput.value = '';
+    }
+    on(modalCancel, 'click', closeModal);
+    on(backdrop, 'click', closeModal);
+    on(modalSave, 'click', () => {
+      const val = modalInput.value.trim();
+      if (modalHandler) modalHandler(val);
+      closeModal();
+      renderViralTable();
+    });
+    on(modalInput, 'keydown', (e) => {
+      if (e.key === 'Enter') modalSave.click();
+      if (e.key === 'Escape') closeModal();
+    });
+
+    const getLinkedIn = () => localStorage.getItem(LS_LINKEDIN) || '';
+    const setLinkedIn = (url) => localStorage.setItem(LS_LINKEDIN, url);
+    const getCV = () => localStorage.getItem(LS_CV) || '';
+    const setCV = (url) => localStorage.setItem(LS_CV, url);
+
+    const openLinkedInSafe = () => {
+      const url = getLinkedIn();
+      if (url && validUrl(url)) window.open(url, '_blank', 'noopener');
+      else {
+        openModal({
+          title: 'Set LinkedIn URL',
+          desc: 'Paste your LinkedIn profile URL below. It will be saved on this device.',
+          initial: url,
+          onSave: (val) => { if (!validUrl(val)) return alert('Please enter a full URL starting with http or https.'); setLinkedIn(val.trim()); }
+        });
+      }
+    };
+    on($('#linkedinBtn'), 'click', openLinkedInSafe);
+    on($('#openLinkedIn'), 'click', openLinkedInSafe);
+    on($('#linkedinInlineBtn'), 'click', openLinkedInSafe);
+    on($('#setLinkedIn'), 'click', () => openModal({
+      title: 'Set LinkedIn URL',
+      desc: 'Paste your LinkedIn profile URL below. It will be saved on this device.',
+      initial: getLinkedIn(),
+      onSave: (val) => { if (!validUrl(val)) return alert('Please enter a full URL starting with http or https.'); setLinkedIn(val.trim()); }
+    }));
+
+    on($('#viewCV'), 'click', () => {
+      const url = getCV();
+      if (url && validUrl(url)) window.open(url, '_blank', 'noopener');
+      else openModal({
+        title: 'Set CV URL',
+        desc: 'Paste a direct link to your CV (PDF or site). It will be saved on this device.',
+        initial: url,
+        onSave: (val) => { if (!validUrl(val)) return alert('Please enter a full URL starting with http or https.'); setCV(val.trim()); }
       });
     });
+    on($('#downloadCV'), 'click', () => {
+      const url = getCV();
+      if (!url || !validUrl(url)) return openModal({
+        title: 'Set CV URL',
+        desc: 'Paste a direct link to your CV (PDF or site). It will be saved on this device.',
+        initial: url,
+        onSave: (val) => { if (!validUrl(val)) return alert('Please enter a full URL starting with http or https.'); setCV(val.trim()); }
+      });
+      const a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.download = ''; document.body.appendChild(a); a.click(); a.remove();
+    });
+    on($('#printCV'), 'click', () => {
+      const details = $('#cvDetails');
+      if (details && details.classList.contains('hidden')) {
+        details.classList.remove('hidden');
+        const toggle = $('#toggleCVDetails'); if (toggle) toggle.textContent = 'Hide details';
+        setTimeout(() => window.print(), 100);
+      } else window.print();
+    });
+    on($('#setCV'), 'click', () => openModal({
+      title: 'Set CV URL',
+      desc: 'Paste a direct link to your CV (PDF or site). It will be saved on this device.',
+      initial: getCV(),
+      onSave: (val) => { if (!validUrl(val)) return alert('Please enter a full URL starting with http or https.'); setCV(val.trim()); }
+    }));
+    on($('#toggleCVDetails'), 'click', (e) => {
+      const box = $('#cvDetails'); if (!box) return;
+      box.classList.toggle('hidden');
+      e.currentTarget.textContent = box.classList.contains('hidden') ? 'Show details' : 'Hide details';
+    });
+
+    // Viral posts table
+    const viralPosts = [
+      { id: "1", summary: "Joe Rogan Maui–Ukraine Commentary — Critiquing aid priorities.", views: "105.2K", link: "" },
+      { id: "2", summary: "Lisa Simpson Psyops Meme — A humorous political meme.", views: "66.1K", link: "" },
+      { id: "3", summary: "Biden Wildfire Relief Critique — Political commentary on disaster relief.", views: "41.4K", link: "" },
+      { id: "4", summary: "Musk Gaming Controversy Response — Humorous defense of Elon Musk.", views: "34.4K", link: "" },
+      { id: "5", summary: "Yilongma Livestream Hype — Engaging with a pop culture trend.", views: "24.1K", link: "" },
+      { id: "6", summary: "Trump Wildfire Warning Vindication — Political commentary and vindication.", views: "21K", link: "" },
+      { id: "7", summary: "Back to the Future Tribute — Nostalgic pop culture content.", views: "17.4K", link: "" },
+      { id: "8", summary: "Zuckerberg & Hegseth Clip Reaction — Reacting to a viral news clip.", views: "14K", link: "" },
+      { id: "9", summary: "Pam Bondi vs. Hirono Hearing — Legal and political commentary.", views: "10.2K", link: "" },
+      { id: "10", summary: "Relationship Meme Clip — A humorous, relatable meme.", views: "10K", link: "" },
+    ];
+
+    const defaultViralLinks = {
+      "1": "https://x.com/Edwin_G_Piza/status/495",
+      "2": "https://x.com/AutismCapital/status/511",
+      "3": "https://x.com/Edwin_G_Piza/status/078",
+      "4": "https://x.com/Edwin_G_Piza/status/863",
+      "5": "https://x.com/Edwin_G_Piza/status/761",
+      "6": "https://x.com/Edwin_G_Piza/status/398",
+      "7": "https://x.com/Edwin_G_Piza/status/833",
+      "8": "https://x.com/Edwin_G_Piza/status/695",
+      "9": "https://x.com/Edwin_G_Piza/status/690",
+      "10": "https://x.com/Edwin_G_Piza/status/762"
+    };
+
+    function loadViralLinks() { try { return JSON.parse(localStorage.getItem(LS_VIRAL) || '{}'); } catch { return {}; } }
+    function saveViralLinks(map) { localStorage.setItem(LS_VIRAL, JSON.stringify(map)); }
+    function ensureDefaultViralLinks() {
+      const map = loadViralLinks(); let changed = false;
+      Object.entries(defaultViralLinks).forEach(([k, v]) => { if (!map[k]) { map[k] = v; changed = true; }});
+      if (changed) saveViralLinks(map);
+      return map;
+    }
+
+    function renderViralTable() {
+      const tbody = $('#viralTable'); if (!tbody) return;
+      const saved = ensureDefaultViralLinks();
+
+      viralPosts.forEach(item => {
+        let row = tbody.querySelector(`tr[data-id="${item.id}"]`);
+        const link = saved[item.id] || '';
+        if (!row) {
+          row = document.createElement('tr');
+          row.dataset.id = item.id;
+          row.innerHTML = `
+            <td class="py-3 px-3 text-gray-400">${item.id.padStart(2, '0')}</td>
+            <td class="py-3 px-3" data-cell="summary"></td>
+            <td class="py-3 px-3 text-gray-300" data-cell="views"></td>
+            <td class="py-3 px-3" data-cell="link">
+              <a class="text-indigo-300 hover:underline text-sm ${link ? '' : 'hidden'}" target="_blank" rel="noopener">Open</a>
+              <span class="text-xs px-2 py-1 rounded-full tag text-gray-300 ${link ? 'hidden' : 'inline-block'}">No link set</span>
+            </td>
+            <td class="py-3 px-3">
+              <div class="flex justify-end gap-2">
+                <button class="px-3 py-1.5 rounded-lg glass hover:bg-white/5 transition text-xs" data-action="edit">Add link</button>
+                <button class="px-3 py-1.5 rounded-lg bg-rose-500/80 hover:bg-rose-500 transition text-xs" data-action="clear">Clear</button>
+              </div>
+            </td>
+          `;
+          tbody.appendChild(row);
+
+          row.querySelector('[data-action="edit"]').addEventListener('click', () => {
+            const savedNow = loadViralLinks();
+            openModal({
+              title: `Set link for #${item.id}`,
+              desc: 'Paste the full URL to this post on X (Twitter).',
+              initial: savedNow[item.id] || '',
+              onSave: (val) => {
+                const next = loadViralLinks();
+                if (val && validUrl(val)) next[item.id] = val.trim();
+                else if (val) { alert('Enter a full URL starting with http or https.'); return; }
+                else delete next[item.id];
+                saveViralLinks(next);
+              }
+            });
+          });
+          row.querySelector('[data-action="clear"]').addEventListener('click', () => {
+            const next = loadViralLinks(); delete next[item.id]; saveViralLinks(next); renderViralTable();
+          });
+        }
+        row.querySelector('[data-cell="summary"]').textContent = item.summary;
+        row.querySelector('[data-cell="views"]').textContent = item.views;
+        const linkA = row.querySelector('[data-cell="link"] a');
+        const badge = row.querySelector('[data-cell="link"] span');
+        const editBtn = row.querySelector('[data-action="edit"]');
+        if (link) { linkA.href = link; linkA.classList.remove('hidden'); badge.classList.add('hidden'); editBtn.textContent = 'Edit link'; }
+        else { linkA.removeAttribute('href'); linkA.classList.add('hidden'); badge.classList.remove('hidden'); editBtn.textContent = 'Add link'; }
+      });
+    }
+
+    on($('#exportLinks'), 'click', () => {
+      const map = loadViralLinks();
+      const data = JSON.stringify(map, null, 2);
+      navigator.clipboard.writeText(data).then(() => alert('Links copied to clipboard!'), () => alert('Could not copy. Here they are:\n' + data));
+    });
+    on($('#importLinks'), 'click', () => {
+      openModal({
+        title: 'Import Links',
+        desc: 'Paste your exported JSON below.',
+        initial: JSON.stringify(loadViralLinks(), null, 2),
+        onSave: (val) => { try { const parsed = JSON.parse(val); saveViralLinks(parsed); renderViralTable(); } catch { alert('Invalid JSON. Please try again.'); } }
+      });
+    });
+    on($('#bulkLinks'), 'click', () => {
+      const current = loadViralLinks();
+      const lines = Array.from({ length: viralPosts.length }, (_, i) => current[String(i + 1)] || '').join('\n');
+      openModal({
+        title: 'Bulk add X links',
+        desc: 'Paste up to 10 links, one per line. Line 1 = #1, line 2 = #2, etc.',
+        initial: lines,
+        onSave: (val) => {
+          const inputLines = val.split(/\r?\n/).map(s => s.trim());
+          const map = loadViralLinks();
+          for (let i = 0; i < viralPosts.length; i++) {
+            const link = inputLines[i] || '';
+            const key = String(i + 1);
+            if (link) { if (!validUrl(link)) return alert(`Row ${key} is not a valid link. Please include http(s).`); map[key] = link; }
+            else delete map[key];
+          }
+          saveViralLinks(map); renderViralTable();
+        }
+      });
+    });
+    on($('#clearLinks'), 'click', () => {
+      if (confirm('Clear all saved links?')) { localStorage.removeItem(LS_VIRAL); renderViralTable(); }
+    });
+
+    $$('a[href^="#"]').forEach(a => a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href'); if (id && id.length > 1) { e.preventDefault(); document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    }));
+
+    renderViralTable();
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e29d1fa6d74778',t:'MTc1NzcxMzc1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
