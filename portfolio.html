@@ -1083,9 +1083,9 @@
 
   viralPosts.forEach(item => {
     let row = document.createElement('tr');
-    row.dataset.id = item.id;
-
-    row.innerHTML = `
+row.dataset.id = item.id;
+row.className = "hover:bg-white/5 transition-colors";
+row.innerHTML = `
       <td class="py-3 px-3 text-gray-400">${item.id.padStart(2, '0')}</td>
       <td class="py-3 px-3">${item.summary}</td>
       <td class="py-3 px-3 text-gray-300">${item.views}</td>
@@ -1112,6 +1112,7 @@
 </script>
 </body>
 </html>
+
 
 
 
