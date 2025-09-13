@@ -1078,35 +1078,41 @@
     const savedLinks = (() => { try { return JSON.parse(localStorage.getItem(LS_VIRAL) || '{}'); } catch { return {}; } })();
 
     function renderViralTable() {
-      const tbody = $('#viralTable'); if (!tbody) return;
-      viralPosts.forEach(item => {
-        let row = document.createElement('tr');
-        row.dataset.id = item.id;
-        row.innerHTML = `
-          <td class="py-3 px-3 text-gray-400">${item.id.padStart(2, '0')}</td>
-          <td class="py-3 px-3">${item.summary}</td>
-          <td class="py-3 px-3 text-gray-300">${item.views}</td>
-          <td class="py-3 px-3">
-            ${savedLinks[item.id] ? `<a class="text-indigo-300 hover:underline text-sm" href="${savedLinks[item.id]}" target="_blank" rel="noopener">Open</a>` : `<span class="text-xs px-2 py-1 rounded-full tag text-gray-300">No link set</span>`}
-          </td>
-          <td class="py-3 px-3 text-right"><span class="text-gray-500 text-xs">Read‑only</span></td>
-        `;
-        tbody.appendChild(row);
-      });
-    }
+  const tbody = $('#viralTable');
+  if (!tbody) return;
+
+  viralPosts.forEach(item => {
+    let row = document.createElement('tr');
+    row.dataset.id = item.id;
+
+    row.innerHTML = `
+      <td class="py-3 px-3 text-gray-400">${item.id.padStart(2, '0')}</td>
+      <td class="py-3 px-3">${item.summary}</td>
+      <td class="py-3 px-3 text-gray-300">${item.views}</td>
+      <td class="py-3 px-3">
+        ${(savedLinks[item.id] || item.link)
+          ? `<a class="text-indigo-300 hover:underline text-sm" href="${savedLinks[item.id] || item.link}" target="_blank" rel="noopener">Open</a>`
+          : `<span class="text-xs px-2 py-1 rounded-full tag text-gray-300">No link set</span>`}
+      </td>
+      <td class="py-3 px-3 text-right"><span class="text-gray-500 text-xs">Read‑only</span></td>
+    `;
+
+    tbody.appendChild(row);
+  });
+}
+
 
     $$('a[href^="#"]').forEach(a => a.addEventListener('click', (e) => {
       const id = a.getAttribute('href'); if (id && id.length > 1) { e.preventDefault(); document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     }));
 
     renderViralTable();
-    document.addEventListener('DOMContentLoaded', renderViralTable);
-
   </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e33a85c5ce485b',t:'MTc1NzcyMDIwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
 </script>
 </body>
 </html>
+
 
 
 
