@@ -52,17 +52,33 @@
       display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(255,255,255,0.08);
     }
     .avatar-initials { font-weight: 800; letter-spacing: 0.5px; }
-    @media print {
-      body * { visibility: hidden !important; }
-      #cvDetails, #cvDetails * { visibility: visible !important; }
-      #cvDetails {
-        position: absolute; left: 0; top: 0; right: 0;
-        background: #fff !important; color: #111 !important; padding: 24px;
-      }
-      #cvDetails .text-gray-300, #cvDetails .text-gray-400 { color: #111 !important; }
-      #cvDetails .divider { display: none !important; }
-      a { color: #111 !important; text-decoration: none; }
-    }
+   @media print {
+  body * {
+    visibility: hidden !important;
+  }
+  #cvDetails, #cvDetails * {
+    visibility: visible !important;
+  }
+  #cvDetails {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: #fff !important;
+    color: #111 !important;
+    padding: 24px;
+  }
+  #cvDetails .text-gray-300, #cvDetails .text-gray-400 {
+    color: #111 !important;
+  }
+  #cvDetails .divider {
+    display: none !important;
+  }
+  a {
+    color: #111 !important;
+    text-decoration: none;
+  }
+}
   </style>
 </head>
 <body class="antialiased selection:bg-indigo-400/30 selection:text-white">
@@ -961,5 +977,6 @@
   </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e33a85c5ce485b',t:'MTc1NzcyMDIwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 
