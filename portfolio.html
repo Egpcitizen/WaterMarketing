@@ -480,19 +480,47 @@
           show('p1');
         })();
 //just bottom buttons stuff
-const mockUrl = localStorage.getItem('waterloss_mock_url') || 'https://egpcitizen.github.io/egp/watermarketing.html';
+(function(){
+  const p1Btn = document.getElementById('wlPart1Btn');
+  const p2Btn = document.getElementById('wlPart2Btn');
+  const p1 = document.getElementById('wlPart1');
+  const p2 = document.getElementById('wlPart2');
+  const mockTop = document.getElementById('mockLinkTop');
+  const p1BtnBottom = document.getElementById('wlPart1BtnBottom');
+  const p2BtnBottom = document.getElementById('wlPart2BtnBottom');
+  const mockBottom = document.getElementById('mockLinkBottom');
+  function show(which){
+    const isP1 = which === 'p1';
+    p1.classList.toggle('hidden', !isP1);
+    p2.classList.toggle('hidden', isP1);
 
-['wlPart1Btn', 'wlPart1BtnBottom'].forEach(id => {
-  on($(`#${id}`), () => show('p1'));
-});
+    const toggleBtnStyles = (btn, active) => {
+      if (btn) {
+        btn.classList.toggle('bg-indigo-500', active);
+        btn.classList.toggle('font-semibold', active);
+        btn.classList.toggle('glass', !active);
+      }
+    };
 
-['wlPart2Btn', 'wlPart2BtnBottom'].forEach(id => {
-  on($(`#${id}`), () => show('p2'));
-});
+    toggleBtnStyles(p1Btn, isP1);
+    toggleBtnStyles(p2Btn, !isP1);
+    toggleBtnStyles(p1BtnBottom, isP1);
+    toggleBtnStyles(p2BtnBottom, !isP1);
+  }
+  p1Btn && p1Btn.addEventListener('click', () => show('p1'));
+  p2Btn && p2Btn.addEventListener('click', () => show('p2'));
+  mockTop && mockTop.addEventListener('click', () => {
+    openExternal('https://egpcitizen.github.io/egp/watermarketing.html');
+  });
 
-['mockLinkTop', 'mockLinkBottom'].forEach(id => {
-  on($(`#${id}`), () => openExternal(mockUrl));
-});
+  // Bottom buttons
+  p1BtnBottom && p1BtnBottom.addEventListener('click', () => show('p1'));
+  p2BtnBottom && p2BtnBottom.addEventListener('click', () => show('p2'));
+  mockBottom && mockBottom.addEventListener('click', () => {
+    openExternal('https://egpcitizen.github.io/egp/watermarketing.html');
+  });
+  show('p1');
+})();
 
 
 
@@ -500,9 +528,10 @@ const mockUrl = localStorage.getItem('waterloss_mock_url') || 'https://egpcitize
     </div>
     <!-- Repeat buttons at bottom -->
 <div class="mt-10 flex flex-wrap gap-2 justify-center">
-  <button id="wlPart1BtnBottom" class="...">Part 1</button>
-  <button id="wlPart2BtnBottom" class="...">Part 2</button>
-  <button id="mockLinkBottom" class="...">Open mock site</button>
+  <button id="wlPart1BtnBottom" class="px-4 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition text-sm font-semibold ring-focus">Part 1
+  </button> <button id="wlPart2BtnBottom" class="px-4 py-2 rounded-lg glass hover:bg-white/5 transition text-sm ring-focus">Part 2
+  </button> <button id="mockLinkBottom" class="px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 transition text-sm font-semibold ring-focus"
+  >Open mock site</button>
 </div>
 
 
@@ -1078,6 +1107,7 @@ const mockUrl = localStorage.getItem('waterloss_mock_url') || 'https://egpcitize
   </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97e33a85c5ce485b',t:'MTc1NzcyMDIwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 
 
